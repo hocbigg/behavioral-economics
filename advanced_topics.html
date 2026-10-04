@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Advanced Topics</title>
+  <meta name="description" content="Advanced Topics curriculum by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/behavioral-economics/advanced_topics.html">
+  <meta property="og:title" content="Advanced Topics">
+  <meta property="og:description" content="Advanced Topics curriculum by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/behavioral-economics/advanced_topics.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  transform: translateY(-150%);
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(1rem);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--fg);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+a:has(img) {
+  text-decoration: none;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-header img {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  margin-inline: 0;
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/behavioral-economics/">Behavioral Economics</a></li>
+      <li><a href="/behavioral-economics/advanced_topics.html">Advanced Topics</a></li>
+      <li><a href="/behavioral-economics/projects.html">Projects</a></li>
+      <li><a href="https://github.com/hocbigg/behavioral-economics" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="advanced-topics">Advanced Topics</h1>
+<p>Learners are encouraged to select one or two tracks aligned with their professional or academic goals rather than attempting to complete every specialization.</p>
+<ul>
+<li><strong>Behavioral Finance</strong> - The study of psychological biases in asset pricing, market anomalies, speculative bubbles, and retail and institutional investment behavior.</li>
+<li><strong>Behavioral Public Policy and Governance</strong> - The application of behavioral insights to regulatory design, public health, taxation, social welfare programs, and the ethics of state-directed choice architecture.</li>
+<li><strong>Behavioral Game Theory and Experimental Economics</strong> - The formal modeling of strategic interactions among boundedly rational players alongside laboratory and field experimental design.</li>
+<li><strong>Applied Behavioral Design and Organizations</strong> - The operational deployment of behavioral science in commercial product strategy, digital UX design, consumer choice, and organizational de-biasing.</li>
+</ul>
+<h2 id="behavioral-finance">Behavioral Finance</h2>
+<p>The study of psychological biases in asset pricing, market anomalies, speculative bubbles, and retail and institutional investment behavior.</p>
+<p>Market Psychology and Systemic Risk: <a href="https://oyc.yale.edu/economics/econ-252-11" target="_blank" rel="noopener noreferrer">ECON 252: Financial Markets (Robert Shiller, Open Yale Courses)</a> - Nobel laureate Robert Shiller's complete undergraduate lecture series, featuring dedicated sessions on behavioral asset pricing, human foibles, speculative bubbles, and financial market regulation.</p>
+<p>Behavioral Asset Pricing and Limits to Arbitrage: <a href="https://books.google.com/books?isbn=9780198292272" target="_blank" rel="noopener noreferrer">Inefficient Markets: An Introduction to Behavioral Finance (Andrei Shleifer)</a> - The seminal academic monograph formalizing noise trader risk, investor sentiment, and why rational arbitrageurs fail to eliminate asset mispricing in real-world markets.</p>
+<p>Asset Bubbles and Speculative Dynamics: <a href="https://books.google.com/books?isbn=9780691173122" target="_blank" rel="noopener noreferrer">Irrational Exuberance (Robert J. Shiller)</a> - Shiller's definitive investigation into the structural, cultural, and psychological mechanisms that drive speculative bubbles across equity, housing, and bond markets.</p>
+<p>Investor Biases and Wealth Management: <a href="https://www.coursera.org/learn/duke-behavioral-finance" target="_blank" rel="noopener noreferrer">Behavioral Finance (Duke University / Coursera)</a> - A structured course available in free audit mode that covers retail portfolio errors, overconfidence, mental accounting, and behavioral debiasing in wealth management.</p>
+<h2 id="behavioral-public-policy-and-governance">Behavioral Public Policy and Governance</h2>
+<p>The application of behavioral insights to regulatory design, public health, taxation, social welfare programs, and the ethics of state-directed choice architecture.</p>
+<p>International Evidence and Policy Implementation: <a href="https://doi.org/10.1787/9789264270480-en" target="_blank" rel="noopener noreferrer">Behavioural Insights and Public Policy: Lessons from Around the World (OECD)</a> - An open-access 404-page report surveying behavioral public policies across 23 countries, with in-depth case studies in taxation, healthcare, consumer protection, and regulatory compliance.</p>
+<p>Intervention Toolkits and Heuristic Design: <a href="https://www.bi.team/publications/east-four-simple-ways-to-apply-behavioural-insights" target="_blank" rel="noopener noreferrer">The EAST Framework: Four Simple Ways to Apply Behavioural Insights (The Behavioural Insights Team)</a> - The primary practitioner manual from the world's pioneer nudge unit, providing systematic guidelines to make policy-targeted behaviors Easy, Attractive, Social, and Timely.</p>
+<p>Behavioral Public Policy Analysis: <a href="https://www.edx.org/course/behavioral-economics-and-public-policy" target="_blank" rel="noopener noreferrer">Behavioral Economics and Public Policy (IIM Bangalore / edX)</a> - A free-to-audit intermediate course examining how behavioral economics addresses discrimination, affirmative action, public goods provision, and choice environments in government programs.</p>
+<p>Ethics, Autonomy, and Sludge: <a href="https://books.google.com/books?isbn=9781107140707" target="_blank" rel="noopener noreferrer">The Ethics of Influence: Government in the Age of Behavioral Science (Cass R. Sunstein)</a> - The standard philosophical analysis of choice architecture, addressing paternalism, subliminal manipulation, institutional transparency, and administrative burden.</p>
+<h2 id="behavioral-game-theory-and-experimental-economics">Behavioral Game Theory and Experimental Economics</h2>
+<p>The formal modeling of strategic interactions among boundedly rational players alongside laboratory and field experimental design.</p>
+<p>Strategic Interaction Foundations: <a href="https://oyc.yale.edu/economics/econ-159" target="_blank" rel="noopener noreferrer">ECON 159: Game Theory (Ben Polak, Open Yale Courses)</a> - A complete 24-lecture university course covering backward induction, Nash equilibria, asymmetric information, and real-time classroom experiments exposing systematic departures from rationality.</p>
+<p>Behavioral Game Theory and Strategic Anomalies: <a href="https://books.google.com/books?isbn=9780691090399" target="_blank" rel="noopener noreferrer">Behavioral Game Theory: Experiments in Strategic Interaction (Colin F. Camerer)</a> - The definitive text unifying psychological realism and formal game theory, covering bargaining games, coordination problems, social preferences, and strategic learning models.</p>
+<p>Randomized Evaluation in the Field: <a href="https://ocw.mit.edu/courses/res-14-001-abdul-latif-jameel-poverty-action-lab-executive-training-evaluating-social-programs-2009-spring-2009/" target="_blank" rel="noopener noreferrer">Evaluating Social Programs (Esther Duflo, Abhijit Banerjee &amp; Rachel Glennerster, MIT OpenCourseWare)</a> - A complete MIT OCW course package from J-PAL covering the practical design, randomization mechanics, power calculations, and threat management required for rigorous field evaluations.</p>
+<p>Field Experimental Methodology and Causal Inference: <a href="https://books.google.com/books?isbn=9780393979954" target="_blank" rel="noopener noreferrer">Field Experiments: Design, Analysis, and Interpretation (Alan S. Gerber &amp; Donald P. Green)</a> - The comprehensive graduate-level guide to conducting randomized trials outside laboratory settings, detailing statistical inference, noncompliance corrections, and spillover analysis.</p>
+<h2 id="applied-behavioral-design-and-organizations">Applied Behavioral Design and Organizations</h2>
+<p>The operational deployment of behavioral science in commercial product strategy, digital UX design, consumer choice, and organizational de-biasing.</p>
+<p>The Execution and Implementation Pipeline: <a href="https://books.google.com/books?isbn=9781442650435" target="_blank" rel="noopener noreferrer">The Last Mile: Creating Social and Economic Value from Behavioral Insights (Dilip Soman)</a> - The definitive guide to closing the gap between behavioral theory and actual execution, detailing how to conduct behavioral audits, map decision points, and eliminate cognitive friction.</p>
+<p>Behavioral Product Design and Digital UX: <a href="https://books.google.com/books?isbn=9781933820422" target="_blank" rel="noopener noreferrer">Engaged: Designing for Behavior Change (Amy Bucher)</a> - A comprehensive practitioner textbook applying self-determination theory and behavioral insights to software design, habit formation, and digital customer journeys.</p>
+<p>Subconscious Attention and Consumer Choice: <a href="https://www.coursera.org/learn/neuromarketing" target="_blank" rel="noopener noreferrer">An Introduction to Consumer Neuroscience &amp; Neuromarketing (Copenhagen Business School / Coursera)</a> - A free-to-audit online course exploring the neurobiological and psychological mechanisms of consumer attention, sensory marketing, and subconscious decision-making.</p>
+<p>Organizational Choice Architecture: <a href="https://books.google.com/books?isbn=9780674089037" target="_blank" rel="noopener noreferrer">What Works: Gender Equality by Design (Iris Bohnet)</a> - A field-tested guide demonstrating how to replace ineffective corporate diversity training with behavioral systems design across hiring, evaluation, promotion, and institutional governance.</p>
+    </article>
+  </main>
+
+</body>
+</html>
